@@ -7,7 +7,6 @@ public class Solution {
         Scanner scanner = new Scanner(System.in);
 
         int N = scanner.nextInt();
-
         LinkedList<Integer> list = new LinkedList<>();
 
         for (int i = 0; i < N; i++) {
@@ -18,13 +17,19 @@ public class Solution {
 
         System.out.print("Forward: ");
         while (iterator.hasNext()) {
-            System.out.print(iterator.next() + " ");
+            System.out.print(iterator.next());
+            if (iterator.hasNext()) {
+                System.out.print(" ");
+            }
         }
         System.out.println();
 
         System.out.print("Backward: ");
         while (iterator.hasPrevious()) {
-            System.out.print(iterator.previous() + " ");
+            System.out.print(iterator.previous());
+            if (iterator.hasPrevious()) {
+                System.out.print(" ");
+            }
         }
 
         scanner.close();
