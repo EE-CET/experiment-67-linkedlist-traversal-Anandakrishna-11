@@ -1,24 +1,41 @@
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        	
-	String line = scanner.nextLine();
-        String[] words = line.split("\\s+");
-
-        LinkedHashMap<String, Integer> freqMap = new LinkedHashMap<>();
-
-        for (String word : words) {
-            freqMap.put(word, freqMap.getOrDefault(word, 0) + 1);
+       
+	int n = scanner.nextInt();
+        
+        LinkedList<Integer> list = new LinkedList<>();
+        
+        for (int i = 0; i < n; i++) {
+            list.add(scanner.nextInt());
         }
-
-        for (Map.Entry<String, Integer> entry : freqMap.entrySet()) {
-               System.out.print(entry.getKey() + ": " + entry.getValue() + " ");      }
-
+        
+        ListIterator<Integer> iterator = list.listIterator();
+        
+                        System.out.print("Forward: ");
+        if (iterator.hasNext()) {
+            System.out.print(iterator.next());
+        }
+        while (iterator.hasNext()) {
+            System.out.print(" " + iterator.next());
+        }
+        System.out.println();
+        
+        System.out.print("Backward: ");
+        while (iterator.hasPrevious()) {
+            System.out.print(iterator.previous());
+            if (iterator.hasPrevious()) {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
+        
         scanner.close();
 
+        
     }
 }
