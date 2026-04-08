@@ -5,19 +5,37 @@ import java.util.Scanner;
 public class Solution {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+       
+	int n = scanner.nextInt();
         
-        // TODO: Read the integer N
+        LinkedList<Integer> list = new LinkedList<>();
         
-        // TODO: Create a LinkedList of Integers
+        for (int i = 0; i < n; i++) {
+            list.add(scanner.nextInt());
+        }
         
-        // TODO: Read N integers and add them to the LinkedList
+        ListIterator<Integer> iterator = list.listIterator();
         
-        // TODO: Create a ListIterator for the LinkedList
+                        System.out.print("Forward: ");
+        if (iterator.hasNext()) {
+            System.out.print(iterator.next());
+        }
+        while (iterator.hasNext()) {
+            System.out.print(" " + iterator.next());
+        }
+        System.out.println();
         
-        // TODO: Traverse the list in the forward direction and print the elements
+        System.out.print("Backward: ");
+        while (iterator.hasPrevious()) {
+            System.out.print(iterator.previous());
+            if (iterator.hasPrevious()) {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
         
-        // TODO: Traverse the list in the backward direction and print the elements
-        
+        scanner.close();
+
         
     }
 }
